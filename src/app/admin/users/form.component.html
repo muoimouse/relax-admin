@@ -1,0 +1,135 @@
+<div id="content">
+    <div class="row">
+        <sa-big-breadcrumbs [items]="['User'|trans, (fb.isNew?'Add':'Edit')|trans]" icon="users" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
+    </div>
+
+    <section id="widget-grid" class="">
+        <div class="row">
+            <article class="col-sm-12">
+                <div class="jarviswidget jarviswidget-sortable" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false" role="widget">
+                    <header role="heading">
+                        <div class="jarviswidget-ctrls" role="menu">
+                            <a href="javascript:void(0);" class="button-icon jarviswidget-fullscreen-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Fullscreen"><i class="fa fa-expand "></i></a>
+                        </div>
+                        <span class="widget-icon"> <i class="fa fa-pencil-square-o"></i> </span>
+                        <h2>{{'User'|trans}}</h2>
+                    </header>
+
+                    <div role="content">
+                        <div class="jarviswidget-editbox">
+                        </div>
+                        <div class="widget-body">
+                            <form [formGroup]="fb.form" class="form-horizontal" (ngSubmit)="save(true)">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Username'|trans}} <span class="text-danger">*</span></label>
+                                        <div class="col-md-10">
+                                            <input type="text" formControlName="username" placeholder="{{'Username'|trans}}" class="form-control" autocomplete="false">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Password'|trans}} <span class="text-danger">*</span></label>
+                                        <div class="col-md-10">
+                                            <input type="password" formControlName="password" placeholder="{{'Password'|trans}}" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Email'|trans}} <span class="text-danger">*</span></label>
+                                        <div class="col-md-10">
+                                            <input type="text" formControlName="email" placeholder="{{'Email'|trans}}" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Name'|trans}} <span class="text-danger">*</span></label>
+                                        <div class="col-md-10 text-left">
+                                            <input type="text" formControlName="name" placeholder="{{'Name'|trans}}" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Group'|trans}} <span class="text-danger">*</span></label>
+                                        <div class="col-md-10 text-left">
+                                            <select formControlName="group" class="input-sm form-control">
+                                                <option *ngFor="let item of app.constant.User.group|list:('Group'|trans)" [value]="item.key" [selected]="item.key==''" >{{item.value|trans}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Active'|trans}}</label>
+                                        <div class="checkbox col-md-1">
+                                            <label>
+                                                <input type="checkbox" formControlName="active" class="checkbox style-0" />
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a class="btn btn-default" [routerLink]='["/admin/user"]' type="button">{{'Cancel'|trans}}</a>
+                                            <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> {{'Submit'|trans}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+<div class="modal fade" id="formConfirm" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{'Confirmation'|trans}}</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"><strong>{{'Username'|trans}}</strong></label>
+                        <div class="col-md-10">{{fb.form.get('username').value}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"><strong>{{'Password'|trans}}</strong></label>
+                        <div class="col-md-10">******</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"><strong>{{'Email'|trans}}</strong></label>
+                        <div class="col-md-10">{{fb.form.get('email').value}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"><strong>{{'Name'|trans}}</strong></label>
+                        <div class="col-md-10">{{fb.form.get('name').value}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"><strong>{{'Group'|trans}}</strong></label>
+                        <div class="col-md-10">{{app.constant.User.group[fb.form.get('group').value]}}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"><strong>{{'Active'|trans}}</strong></label>
+                        <div class="col-md-10">{{app.constant.Active[fb.form.get('active').value]}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{{'Cancel'|trans}}</button>
+                <button type="button" class="btn btn-primary" (click)="save()"><i class="fa fa-check"></i> {{'Confirm'|trans}}</button>
+            </div>
+        </div>
+    </div>
+</div>

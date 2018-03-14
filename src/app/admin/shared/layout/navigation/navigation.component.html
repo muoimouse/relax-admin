@@ -1,0 +1,55 @@
+<aside id="left-panel">
+
+  <!-- User info -->
+  <sa-login-info></sa-login-info>
+  <!-- end user info -->
+
+  <nav>
+    <!-- NOTE: Notice the gaps after each icon usage <i></i>..
+    Please note that these links work a bit different than
+    traditional href="" links. See documentation for details.
+    -->
+
+    <ul saSmartMenu>
+
+      <li class="top-menu-invisible" routerLinkActive="active">
+        <a routerLink="/admin/home" title="{{'Dashboard'|trans}}">
+          <i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'Dashboard'|trans}}</span></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">{{'Admin management'|trans}}</span></a>
+        <ul>
+          <li routerLinkActive="active">
+            <a routerLink="/admin/user/list" title="{{'Admin list'|trans}}">
+              <i class="fa fa-lg fa-fw fa-list"></i>
+              <span class="menu-item-parent">{{'Admin list'|trans}}</span></a>
+          </li>
+          <li  routerLinkActive="active">
+            <a routerLink="/admin/user/form" title="{{'New admin'|trans}}">
+              <i class="fa fa-lg fa-fw fa-plus-square-o"></i>
+              <span class="menu-item-parent">{{'New admin'|trans}}</span></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-lg fa-fw fa-list"></i> <span class="menu-item-parent">{{'Test'|trans}}</span></a>
+        <ul>
+          <li routerLinkActive="active">
+            <a routerLink="/admin/tmp-test-type" title="{{'Test type'|trans}}">
+              <i class="fa fa-lg fa-fw fa-list"></i>
+              <span class="menu-item-parent">{{'Test type'|trans}}</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/admin/tmp-test" title="{{'Test'|trans}}">
+              <i class="fa fa-lg fa-fw fa-list"></i>
+              <span class="menu-item-parent">{{'Test'|trans}}</span></a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+
+  <sa-minify-menu></sa-minify-menu>
+
+</aside>

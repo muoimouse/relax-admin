@@ -1,0 +1,66 @@
+
+table.table tbody tr td {
+    line-height: 30px !important;
+    text-align: center;
+}
+table tr th .arrow {
+    border: solid 6px transparent;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    float: right;
+}
+table tr th .arrow.asc {
+    border-bottom-color: #333;
+    margin-top: 0px;
+}
+table tr th .arrow.desc {
+    border-top-color: #333;
+    margin-top: 6px;
+}
+table tr th {
+    cursor: pointer;
+    text-align: center;
+}
+.help-block {
+    color: #b94a48;
+}
+.page-footer {
+    position: absolute !important;
+}
+
+#main {
+    min-height: 0;
+    padding-bottom: inherit;
+}
+
+
+/* Admin custom image browser { */
+.superbox {
+    max-height: 300px;
+    width: 100%;
+    overflow: auto;
+    padding-top: 5px;
+}
+
+.superbox-list
+{
+    border: solid 3px transparent;
+    width: 13.5%;
+    padding: 0;
+}
+
+.superbox-list.selected  .superbox-img {
+    opacity: 0.5;
+}
+
+.superbox-list.selected {
+    border: solid 3px #66afe9;
+    border-radius: 2px;
+}
+
+#file-browser .description {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+/* Admin custom image browser } */
